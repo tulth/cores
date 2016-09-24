@@ -74,10 +74,11 @@ extern "C"{
   typeof(b) _b = (b); \
   (_a > _b) ? _a : _b; \
 })
-#define abs(x) ({ \
-  typeof(x) _x = (x); \
-  (_x > 0) ? _x : -_x; \
-})
+#define abs(x) ((x)<0 ? -(x) : (x))
+  /* #define abs(x) ({ \ */
+/*   typeof(x) _x = (x); \ */
+/*   (_x > 0) ? _x : -_x; \ */
+/* }) */
 #define constrain(amt, low, high) ({ \
   typeof(amt) _amt = (amt); \
   typeof(low) _low = (low); \
